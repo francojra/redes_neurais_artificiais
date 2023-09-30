@@ -166,3 +166,32 @@ head(output$net.result)
 
 head(training_data[1, ]) # primeiro dado de previsão
 head(training_data[5, ])
+
+# Array de confusão e erro de classificação ------------------------------------------------------------------------------------------------
+
+### Em seguida, arredondamos nossos resultados usando o método  compute() e criamos 
+### uma array de confusão para comparar o número de verdadeiros / falsos positivos 
+### e negativos. Vamos formar uma array de confusão com dados de treinamento:
+
+output <- compute(n, rep = 1, training_data[, -1])
+p1 <- output$net.result
+pred1 <- ifelse(p1 > 0.5, 1, 0)
+tab1 <- table(pred1, training_data$admit)
+tab1
+
+### O modelo gera 177 verdadeiros negativos (0's), 34 verdadeiros positivos (1's),
+### enquanto há 12 falsos negativos e 58 falsos positivos. Agora, vamos calcular o 
+### erro de classificação incorreta (para dados de treinamento).
+
+### {1 - erro de classificação}
+
+1 - sum(diag(tab1)) / sum(tab1)
+
+### O erro de classificação errada chega a ser 24,9%. Podemos aumentar ainda mais 
+### a precisão e a eficiência do nosso modelo aumentando a diminuição dos nós e o 
+### viés nas camadas ocultas.
+
+### A força dos algoritmos de aprendizado de máquina está em sua capacidade de 
+### aprender e melhorar sempre na previsão de uma saída. No contexto das redes 
+### neurais, isso implica que os pesos e vieses que definem a conexão entre os 
+### neurônios se tornam mais precisos. 
