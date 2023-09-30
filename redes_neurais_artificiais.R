@@ -17,9 +17,7 @@
 ### As redes neurais utilizam vários modelos complexos para melhor tentar
 ### predizer a resposta.
 
-# Análises ---------------------------------------------------------------------------------------------------------------------------------
-
-### Preparando os dados 
+# Preparando os dados  ---------------------------------------------------------------------------------------------------------------------
 
 ### Aqui, vamos usar os conjuntos de dados binários. O objetivo é prever se um 
 ### candidato será admitido em uma universidade com variáveis como gre, gpa e 
@@ -33,6 +31,8 @@ View(data)
 ### Dimensionamento dos dados
 
 hist(data$gre)
+hist(data$gpa)
+hist(data$rank)
 
 ### Normalizar os dados do gre
 
@@ -42,3 +42,30 @@ normalize <- function(x) {
 
 data$gre <- (data$gre - min(data$gre)) / (max(data$gre) - min(data$gre))
 hist(data$gre)
+
+data$gpa <- (data$gpa - min(data$gpa)) / (max(data$gpa) - min(data$gpa))
+hist(data$gpa)
+
+data$rank <- (data$rank - min(data$rank)) / (max(data$rank) - min(data$rank))
+hist(data$rank)
+
+### Pode-se ver a partir da representação dos histogramas acima que gpa, gre e 
+### classificação (rank) são escalados no intervalo de 0 a 1. Os dados escalados 
+### são usados para se ajustar à rede neural.
+
+# Amostragem dos dados em treinamento e teste ----------------------------------------------------------------------------------------------
+
+### Agora divida os dados em um conjunto de treinamento e um conjunto de teste. 
+### O conjunto de treinamento é usado para encontrar a relação entre as variáveis 
+### dependentes e independentes enquanto o conjunto de teste analisa o 
+### desempenho do modelo. 
+
+### A atribuição dos dados ao conjunto de treinamento e teste é feita por meio de 
+### amostragem aleatória. Realizamos amostragem aleatória em R usando a sample()
+### função. Use set.seed() para gerar a mesma amostra aleatória sempre e manter 
+### a consistência. 
+
+set.seed(222)
+inp <- sample(2, nrow(data), replace = TRUE, prob = c(0.7, 0.3))
+training_data <- data[inp == 1, ]
+test_data <- data[inp == 2, ]
