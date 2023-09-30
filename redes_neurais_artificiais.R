@@ -17,3 +17,12 @@
 ### As redes neurais utilizam vários modelos complexos para melhor tentar
 ### predizer a resposta.
 
+# Análises ---------------------------------------------------------------------------------------------------------------------------------
+
+### Preparando os dados 
+
+
+
+
+
+
