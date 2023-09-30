@@ -30,5 +30,15 @@ data <- read.csv("binary.csv")
 str(data)
 View(data)
 
+### Dimensionamento dos dados
 
+hist(data$gre)
 
+### Normalizar os dados do gre
+
+normalize <- function(x) {
+        return((x - min(x)) / (max(x) - min(x)))
+}
+
+data$gre <- (data$gre - min(data$gre)) / (max(data$gre) - min(data$gre))
+hist(data$gre)
