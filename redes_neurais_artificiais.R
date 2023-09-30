@@ -159,4 +159,10 @@ n$result.matrix
 
 # Predição ---------------------------------------------------------------------------------------------------------------------------------
 
+### Vamos prever a classificação usando o modelo de rede neural.
 
+output <- compute(n, rep = 1, training_data[, -1])
+head(output$net.result)
+
+head(training_data[1, ]) # primeiro dado de previsão
+head(training_data[5, ])
