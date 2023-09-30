@@ -97,3 +97,21 @@ test_data <- data[inp == 2, ]
 
 View(training_data)
 View(test_data)
+
+# Instalando uma rede neural ---------------------------------------------------------------------------------------------------------------
+
+### neuralnet()função nos ajuda a estabelecer uma rede neural para nossos dados. 
+### A neuralnet()função que estamos usando aqui tem a seguinte sintaxe:
+
+library(neuralnet)
+
+set.seed(333)
+n <- neuralnet(admit~gre + gpa + rank,
+               data = training_data,
+               hidden = 5,
+               err.fct = "ce",
+               linear.output = FALSE,
+               lifesign = 'full',
+               rep = 2,
+               algorithm = "rprop+",
+               stepmax = 100000)
