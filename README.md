@@ -10,3 +10,5 @@
 2. Preparando os dados;
 3. Amostragem dos dados em treinamento e teste;
 4. Instalando uma rede neural;
+5. Predição;
+6. Array de confusão e erro de classificação.
