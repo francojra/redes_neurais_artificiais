@@ -144,3 +144,19 @@ n <- neuralnet(admit~gre + gpa + rank,
 ### vamos plotar nossa rede neural e visualizar a rede neural computada. 
 
 plot(n, rep = 1)
+
+### O modelo possui 5 neurônios em sua camada oculta. As linhas pretas mostram 
+### as conexões com pesos. Os pesos são calculados usando o algoritmo de 
+### retropropagação. 
+
+### A linha azul exibe o termo de polarização (constante em uma equação de 
+### regressão).
+
+### Agora gere o erro do modelo da rede neural, junto com os pesos entre 
+### as entradas, camadas ocultas e saídas:
+
+n$result.matrix
+
+# Predição ---------------------------------------------------------------------------------------------------------------------------------
+
+
