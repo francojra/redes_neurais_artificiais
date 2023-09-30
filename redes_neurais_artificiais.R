@@ -6,6 +6,31 @@
 
 # Introdução -------------------------------------------------------------------------------------------------------------------------------
 
+### Na referência da inteligência artificial, as redes neurais são um conjunto de 
+### algoritmos projetados para reconhecer um padrão como o do cérebro humano. 
+
+### Eles interpretam os dados sensoriais por meio de uma espécie de percepção da 
+### máquina, rotulagem ou agregação de dados brutos.
+
+### O reconhecimento é numérico, que é armazenado em vetores, nos quais todos os 
+### dados do mundo real, sejam imagens, sons, textos ou séries temporais, devem ser 
+### traduzidos.
+
+### Uma rede neural pode ser retratada como um sistema que consiste em uma série de 
+### nós altamente interconectados, chamados de 'neurônios', que são organizados em 
+### camadas que processam informações usando respostas de estado dinâmico a entradas 
+### externas.
+
+### Perceptrons são um tipo de neurônios artificiais desenvolvidos nas décadas de 1950 
+### e 1960 pelo cientista Frank Rosenbalt, inspirado em trabalhos anteriores de Warren 
+### McCulloch e Walter Pitts. Então, como funciona o perceptron? Um perceptron pega 
+### várias saídas binárias x 1 , x 2 ,…., E produz uma única saída binária.
+### Ele pode ter mais ou menos entradas. Para calcular / computar, os pesos de saída 
+### desempenham um papel importante. A saída do neurônio (o ou 1) depende totalmente 
+### de um valor limite. O perceptron é que é um dispositivo que toma decisões avaliando 
+### as evidências. Variando os pesos e o limite, podemos obter diferentes modelos de 
+### tomada de decisão.
+
 ### Tenta emular matematicamente o funcionamento do cérebro humano.
 ### Procura de maneira não linear padrões mais complexos dos dados nas
 ### variáveis de entrada.
@@ -69,3 +94,6 @@ set.seed(222)
 inp <- sample(2, nrow(data), replace = TRUE, prob = c(0.7, 0.3))
 training_data <- data[inp == 1, ]
 test_data <- data[inp == 2, ]
+
+View(training_data)
+View(test_data)
