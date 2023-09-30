@@ -21,8 +21,14 @@
 
 ### Preparando os dados 
 
+### Aqui, vamos usar os conjuntos de dados binários. O objetivo é prever se um 
+### candidato será admitido em uma universidade com variáveis como gre, gpa e 
+### rank. 
 
-
+getwd()
+data <- read.csv("binary.csv")
+str(data)
+View(data)
 
 
 
