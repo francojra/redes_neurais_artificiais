@@ -100,8 +100,30 @@ View(test_data)
 
 # Instalando uma rede neural ---------------------------------------------------------------------------------------------------------------
 
-### neuralnet()função nos ajuda a estabelecer uma rede neural para nossos dados. 
-### A neuralnet()função que estamos usando aqui tem a seguinte sintaxe:
+### A função neuralnet() nos ajuda a estabelecer uma rede neural para nossos dados. 
+
+### Parâmetros da função neuralnet()
+
+### Fórmula: uma descrição simbólica do modelo a ser ajustado;
+### data: um quadro de dados contendo as variáveis especificadas na fórmula;
+### hidden: um vetor de inteiros especificando o número de neurônios ocultos 
+### (vértices) em cada camada;
+### err.fct: 	uma função diferenciável que é usada para o cálculo do erro. 
+### Alternativamente, as strings 'sse' e 'ce' que representam a soma dos erros 
+### quadráticos e a entropia cruzada podem ser usada;
+### linear.output: Se act.fct não deve ser aplicado aos neurônios de saída, 
+### defina a saída linear como TRUE, caso contrário, como FALS;
+### lifesign: uma string que especifica o quanto a função imprimirá durante 
+### o cálculo da rede neural. 'nenhum', 'mínimo' ou 'completo';
+### rep: o número de repetições para o treinamento da rede neural;
+### algorithm: 	uma string contendo o tipo de algoritmo para calcular a rede 
+### neural. Os seguintes tipos são possíveis: 'backprop', 'rprop +', 'rprop-', 
+### 'sag' ou 'slr'. 'backprop' refere-se à retropropagação, 'rprop +' 
+### e 'rprop-' referem-se à retropropagação resiliente com e sem backtracking 
+### de peso, enquanto 'sag' e 'slr' induzem o uso do algoritmo globalmente 
+### convergente modificado;
+### stepmax: 	os passos máximos para o treinamento da rede neural. Atingir esse 
+### máximo leva à interrupção do processo de treinamento da rede neural.
 
 library(neuralnet)
 
@@ -115,3 +137,10 @@ n <- neuralnet(admit~gre + gpa + rank,
                rep = 2,
                algorithm = "rprop+",
                stepmax = 100000)
+
+### A partir da saída acima, concluímos que ambas as repetições convergem. 
+### Mas usaremos o orientado por saída na primeira repetição porque dá menos erro 
+### (139,80883) do que o erro (147,41304) derivado da segunda repetição. Agora, 
+### vamos plotar nossa rede neural e visualizar a rede neural computada. 
+
+plot(n, rep = 1)
